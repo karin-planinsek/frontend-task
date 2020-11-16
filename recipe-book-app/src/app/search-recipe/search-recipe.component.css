@@ -6,3 +6,8 @@ h2 {
   width: 50%;
   margin: 0 auto;
 }
+
+.ng-autocomplete {
+  width: 100%;
+  margin: 0 auto;
+}

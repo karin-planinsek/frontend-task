@@ -1,16 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 mt-5">
-      <h2 class="pt-5">Recipe Name</h2>
-      <ul>
-        <li>instructions</li>
-        <li>preparation time</li>
-        <li>number of servings</li>
-      </ul>
+      <h2 class="pt-5" *ngIf="recipeData !== undefined; else noData">{{ recipeData.title }}</h2>
+      <ng-template #noData>
+        <h2 class="pt-5">Recipe Name</h2>
+      </ng-template>
+      <img class="pt-5" src='{{ recipeData.image }}' alt="Slikca">
+
     </div>
     <div class="col-sm-6 img mt-5">
-      <img class="pt-5" src="" alt="Slikca">
+      <ul class="pt-5">
+        <li>Preparation time: {{ recipeInfo.readyInMinutes }} minutes</li>
+        <li>Number of servings: {{ recipeInfo.servings}}</li>
+      </ul>
     </div>
+  </div>
+  <div class="row pt-5">
+    <h4 >Instructions:</h4>
+    <div *ngIf="recipeInfo.instructions !== null; else summary">
+      {{ recipeInfo.instructions }}
+    </div>
+    <ng-template #summary>
+      <div>{{ recipeInfo.summary }}</div>
+    </ng-template>
   </div>
 </div>
 

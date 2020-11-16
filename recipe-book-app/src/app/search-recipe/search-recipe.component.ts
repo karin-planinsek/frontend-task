@@ -24,11 +24,15 @@ export class SearchRecipeComponent implements OnInit {
     .subscribe(response => {
       this.recipes = response['results'];
       console.log(this.recipes);
+      // this.recipeService.recipes = response['results'];
+      this.recipeService.getRecipes(response['results']);
     });
   }
 
   selectEvent(recipe) {
     console.log(recipe['id']);
+    this.recipeService.getRecipeId(recipe['id']);
+    this.router.navigate(['/details']);
   }
 
   onChangeSearch(event) {
