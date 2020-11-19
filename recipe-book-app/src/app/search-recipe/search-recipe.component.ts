@@ -26,7 +26,25 @@ export class SearchRecipeComponent implements OnInit {
       console.log(this.recipes);
       // this.recipeService.recipes = response['results'];
       this.recipeService.getRecipes(response['results']);
+
+      // get the id of saved favourite recipe to use it to display a golden star next to it
+      let favouriteRecipes = JSON.parse(localStorage.getItem('favouriteRecipes'));
+
+      if (favouriteRecipes !== null) {
+        console.log('retrievedData', favouriteRecipes);
+        console.log(favouriteRecipes['id']);
+
+        if (response !== null) {
+          let recipeData = this.recipes.find(x => x.id === favouriteRecipes.id);
+          console.log(recipeData);
+        }
+      }
+
+
+
     });
+
+
   }
 
   selectEvent(recipe) {

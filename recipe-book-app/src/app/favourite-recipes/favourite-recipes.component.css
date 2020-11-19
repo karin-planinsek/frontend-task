@@ -1,6 +1,7 @@
 .container {
   width: 80%;
   margin: 0 auto;
+  text-align: center;
 }
 
 h2 {
@@ -10,3 +11,14 @@ h2 {
 .card {
   max-width: 25vw;
 }
+
+#desc {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#noFavourites {
+  text-align: center;
+  font-size: 1.2em;
+}
+

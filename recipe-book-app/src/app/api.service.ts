@@ -37,4 +37,5 @@ export class ApiService {
     return this.http.get(`
     https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${this.API_KEY}`, {headers: this.header});
   }
+
 }

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 mt-5">
-      <h2 class="pt-5" *ngIf="recipeData !== undefined; else noData">{{ recipeData.title }}</h2>
+      <h2 class="pt-5" *ngIf="recipeInfo !== undefined; else noData">{{ recipeInfo.title }}</h2>
       <ng-template #noData>
         <h2 class="pt-5">Recipe Name</h2>
       </ng-template>
-      <img class="pt-5" src='{{ recipeData.image }}' alt="Slikca">
+      <img class="pt-5" src='{{ recipeInfo.image }}' alt="Slikca">
 
     </div>
     <div class="col-sm-6 img mt-5">
@@ -23,6 +23,9 @@
     <ng-template #summary>
       <div>{{ recipeInfo.summary }}</div>
     </ng-template>
+  </div>
+  <div class="pt-5 mb-5 button">
+    <button id="button" class="btn btn-primary" (click)="addToFavourites()">Add to Favourites</button>
   </div>
 </div>
 
