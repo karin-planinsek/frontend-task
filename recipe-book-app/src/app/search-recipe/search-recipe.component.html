@@ -16,7 +16,11 @@
         </ng-autocomplete>
 
         <ng-template #itemTemplate let-item>
-        <a [innerHTML]="item.title"><img src="/src/assets/icon/star.png" alt="" *ngIf="isInFavourites"></a>
+          <div class="search-results">
+            <a [innerHTML]="item.title"></a>
+            <img class="pull-right img-responsive" *ngIf="item.icon !== undefined" src= "{{ item.icon }}" alt="" width="15" height="15">
+          </div>
+
         </ng-template>
 
         <ng-template #notFoundTemplate let-notFound>

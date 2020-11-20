@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators'
 export class ApiService {
 
   header = new HttpHeaders({'Content-Type': 'application/json'});
-  API_KEY = '88de97d87c084c90bb6db83951a8b806';
+  API_KEY = 'd4b6211a232e4550b95379a24351ec29';
 
   constructor(private http: HttpClient,
               private recipeService: RecipeService)

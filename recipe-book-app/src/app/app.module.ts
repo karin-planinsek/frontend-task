@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -22,7 +23,8 @@ import { FavouriteRecipesComponent } from './favourite-recipes/favourite-recipes
     AppRoutingModule,
     HttpClientModule,
     AutocompleteLibModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

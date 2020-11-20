@@ -52,10 +52,9 @@ export class FavouriteRecipesComponent implements OnInit {
       for (let i = 0; i < this.favouriteRecipes.length; i++) {
         console.log(this.favouriteRecipes[i].id);
         if (this.favouriteRecipes[i].id === id) {
-
-          let updatedFavourites = this.favouriteRecipes.splice(i, 1);
-          console.log(updatedFavourites);
-          this.recipeService.updateRecipeInfo(updatedFavourites);
+          this.favouriteRecipes.splice(i, 1);
+          console.log(this.favouriteRecipes);
+          this.recipeService.updateRecipeInfo(this.favouriteRecipes);
         }
       }
     } else {

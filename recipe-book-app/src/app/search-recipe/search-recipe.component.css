@@ -2,8 +2,33 @@ h2 {
   text-align: center;
 }
 
+.row {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  margin-top: 1.5vh;
+
+}
+
+.search-results {
+  width: 100%;
+  display: inline-block;
+}
+
+.search-results a {
+  float: left;
+  font-size: 0.8em;
+}
+
+.search-results img {
+  float: right;
+}
+
 .input-group {
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
 }
 

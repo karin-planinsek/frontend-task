@@ -43,13 +43,24 @@ export class SearchRecipeComponent implements OnInit {
             let recipeId = favourite.id;
             for (let recipe of this.recipes) {
               if (recipeId === recipe.id) {
-                this.isInFavourites = true;
+                // this.isInFavourites = true;
+                recipe.icon = 'assets/icon/star.png';
               }
             }
           }
+        } else if (favouriteRecipes.length <= 1) {
+          let recipeId = favouriteRecipes[0].id;
+          for (let recipe of this.recipes) {
+            if (recipeId === recipe.id) {
+            // this.isInFavourites = true;
+            recipe.icon = 'assets/icon/star.png';
+            }
+          }
         }
-        console.log('retrievedData', favouriteRecipes);
-        console.log(favouriteRecipes['id']);
+
+        console.log(this.recipes);
+        /*console.log('retrievedData', favouriteRecipes);
+        console.log(favouriteRecipes['id']);*/
 
         /*let recipeData = this.recipes.find(x => x.id === favouriteRecipes.id);
         console.log(recipeData);*/
