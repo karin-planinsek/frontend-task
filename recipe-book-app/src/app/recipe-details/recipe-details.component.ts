@@ -1,10 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
-// import {} from 'string-similarity';
 import * as stringSimilarity from 'string-similarity';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -13,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.css']
 })
-export class RecipeDetailsComponent implements OnInit, OnDestroy {
+export class RecipeDetailsComponent implements OnInit {
 
   recipeData;
   recipeInfo;
@@ -46,9 +44,7 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-    }, 1000);
-
-    // let stringSimilarity = require('string-similarity');
+    }, 800);
 
     this.apiService.getRecipeInfo(this.recipeId)
     .subscribe(data => {
@@ -65,30 +61,21 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
           console.log(similarities);
           if (similarities > 0.2) {
             console.log(data.title);
-            this.similarRecipes.push({
-              id: data.id,
-              title: data.title,
-              image: data.image
+            this.apiService.getRecipeInfo(data.id)
+            .subscribe(response => {
+              console.log(response);
+              this.similarRecipes.push({
+                id: response['id'],
+                title: response['title'],
+                image: response['image'],
+                prepTime: response['readyInMinutes']
+              });
             });
           }
         }
 
       }
-      console.log(this.similarRecipes);
     });
-
-    /*this.recipeService.recipeResults
-    .subscribe(data => {
-      console.log(data);
-      this.recipeData = data;
-      console.log(this.recipeData, this.recipeInfo);
-
-      let str = this.recipeInfo.title;
-      console.log(str);
-      let words = str.split('');
-      console.log(words);
-
-    });*/
 
   }
 
@@ -102,7 +89,6 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
       if (favourites.length > 1) {
         for (let favourite of favourites) {
           if (this.recipeInfo.id === favourite['id']) {
-            // alert('Recipe has already been added to favourites');
             alreadyStored = true;
           }
         }
@@ -121,7 +107,7 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
           );
           document.getElementById('button').innerText = 'Added!';
         }
-      } else if (favourites.length <= 1) { // <= 1
+      } else if (favourites.length <= 1) {
         console.log(favourites[0]['id']);
 
         if (this.recipeInfo.id === favourites[0]['id']) {
@@ -158,9 +144,6 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
   onClick(recipeId) {
     this.recipeService.getRecipeId(recipeId);
     this.router.navigate(['/details']);
-  }
-
-  ngOnDestroy() {
   }
 
 }

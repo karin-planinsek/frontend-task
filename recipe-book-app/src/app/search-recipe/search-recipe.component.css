@@ -9,8 +9,7 @@ h2 {
 }
 
 img {
-  margin-top: 1.5vh;
-
+  margin-top: 2vh;
 }
 
 .search-results {
@@ -21,6 +20,7 @@ img {
 .search-results a {
   float: left;
   font-size: 0.8em;
+  padding-right: 0;
 }
 
 .search-results img {
@@ -28,11 +28,23 @@ img {
 }
 
 .input-group {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 
 .ng-autocomplete {
   width: 100%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .input-group {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .search-results a {
+    font-size: 1em;
+  }
 }

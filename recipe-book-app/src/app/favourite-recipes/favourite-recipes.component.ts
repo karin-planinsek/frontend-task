@@ -18,22 +18,9 @@ export class FavouriteRecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.noFavouriteRecipes = false;
-    /*this.recipeId = this.recipeService.recipeId;
-    console.log(this.recipeId);
-
-    this.recipeService.recipeDetails
-    .subscribe(data => {
-      console.log(data);
-    });*/
 
     this.favouriteRecipes = JSON.parse(localStorage.getItem('favouriteRecipes'));
-    console.log(this.favouriteRecipes);
 
-    /*let favRecipeObject = {};
-    Object.assign(favRecipeObject, this.favouriteRecipes);
-    console.log(favRecipeObject);
-
-    this.recipeService.getRecipes(favRecipeObject);*/
   }
 
   onClick() {
@@ -44,10 +31,6 @@ export class FavouriteRecipesComponent implements OnInit {
   }
 
   removeFromFavourites(id) {
-    /*let recipeId = parseInt(document.getElementById('recipeId').innerText, 10);
-    console.log(recipeId);*/
-    console.log(id);
-
     if (this.favouriteRecipes.length > 1) {
       for (let i = 0; i < this.favouriteRecipes.length; i++) {
         console.log(this.favouriteRecipes[i].id);

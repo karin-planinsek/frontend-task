@@ -3,26 +3,28 @@
     <p class="loading" style="color: white;">Loading...</p>
   </ngx-spinner>
   <div *ngIf="recipeInfo !== undefined; else noData">
+    <h2 class="pt-5">{{ recipeInfo.title }}</h2>
     <div class="row">
       <div class="col-sm-6 mt-5">
-        <h2 class="pt-5">{{ recipeInfo.title }}</h2>
-        <img class="pt-5" src='{{ recipeInfo.image }}' alt="Slikca">
+        <h4 >Instructions:</h4>
+        <div *ngIf="recipeInfo.instructions !== null; else summary">
+          <p [innerHTML]="recipeInfo.instructions"></p>
+        </div>
+        <ng-template #summary>
+          <div>
+            <p [innerHTML]="recipeInfo.summary"></p>
+          </div>
+        </ng-template>
+
+
       </div>
-      <div class="col-sm-6 img mt-5">
+      <div class="col-sm-6 img">
+        <img class="img-fluid pt-5" src='{{ recipeInfo.image }}' alt="Slikca">
         <ul class="pt-5">
           <li>Preparation time: {{ recipeInfo.readyInMinutes }} minutes</li>
           <li>Number of servings: {{ recipeInfo.servings}}</li>
         </ul>
       </div>
-    </div>
-    <div class="row pt-5">
-      <h4 >Instructions:</h4>
-      <div *ngIf="recipeInfo.instructions !== null; else summary">
-        {{ recipeInfo.instructions }}
-      </div>
-      <ng-template #summary>
-        <div>{{ recipeInfo.summary }}</div>
-      </ng-template>
     </div>
     <div class="pt-5 mb-5 button">
       <button id="button" class="btn btn-primary" (click)="addToFavourites()">Add to Favourites</button>
@@ -43,6 +45,7 @@
           <img class="card-img-top" src="{{ similar.image }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{ similar.title }}</h5>
+            <p class="card-text">Preparation time: {{ similar.prepTime }}</p>
             <a class="btn btn-primary mr-2 mb-1" (click)="onClick(similar.id)">See details</a>
           </div>
         </div>

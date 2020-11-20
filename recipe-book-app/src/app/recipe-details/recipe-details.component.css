@@ -12,8 +12,8 @@ h2 {
   margin: 0 auto;
 }
 
-.img {
-  text-align: center;
+.img-fluid {
+  max-width: 100%;
 }
 
 .button {

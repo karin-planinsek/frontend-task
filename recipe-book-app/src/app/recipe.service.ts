@@ -1,40 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Recipe } from './recipe';
-
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
-  recipeData = new BehaviorSubject<any>(null);
-  recipeResults = this.recipeData.asObservable();
-
-  recipeInfo = new BehaviorSubject<any>(null);
-  recipeDetails = this.recipeInfo.asObservable();
-
   recipeId;
 
   recipe: Array<{id: number, title: string, image: string, instructions: string, summary: string, prepTime: number, servings: number}> = [];
   recipes;
 
-  getRecipes(recipes) {
-    console.log(recipes);
-    this.recipeData.next(recipes);
-  }
-
-  getRecipeDetails(recipeInfo) {
-    this.recipeInfo.next(recipeInfo);
-  }
-
   storeRecipeInfo(
     recipeId: number, recipeTitle: string, recipeImage: string, desc: string, sum: string, time: number, numberOfServings: number)
     {
-    /*this.recipe.push({
-      id: recipeId,
-      title: recipeTitle, image: recipeImage, instructions: desc, summary: recipeSummary, prepTime: time, servings: numberServings
-    });*/
-
     let favouriteRecipes = [];
     favouriteRecipes = JSON.parse(localStorage.getItem('favouriteRecipes'));
 

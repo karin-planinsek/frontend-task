@@ -2,15 +2,12 @@
   <div style="text-align: center;">
     <h2 class="pt-5">Search recipes</h2>
     <div class="input-group mb-3 pt-3">
-      <!--<input type="text" class="form-control input-sm" placeholder="Search" aria-label="" aria-describedby="basic-addon1">-->
       <div class="ng-autocomplete">
         <ng-autocomplete
           [data]="recipes"
           [searchKeyword]="keyword"
           placeHolder="Search"
           (selected)='selectEvent($event)'
-          (inputChanged)='onChangeSearch($event)'
-          (inputFocused)='onFocused($event)'
           [itemTemplate]="itemTemplate"
           [notFoundTemplate]="notFoundTemplate">
         </ng-autocomplete>
