@@ -48,12 +48,7 @@ export class SearchRecipeComponent implements OnInit {
           }
         }
       }
-
-
-
     });
-
-
   }
 
   selectEvent(recipe) {

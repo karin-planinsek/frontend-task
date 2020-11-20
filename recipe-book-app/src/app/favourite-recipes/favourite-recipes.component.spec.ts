@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { FavouriteRecipesComponent } from './favourite-recipes.component';
 
@@ -8,7 +9,8 @@ describe('FavouriteRecipesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavouriteRecipesComponent ]
+      declarations: [ FavouriteRecipesComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));
@@ -21,5 +23,9 @@ describe('FavouriteRecipesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get favourites from local storage', () => {
+    expect(component.favouriteRecipes).toEqual(localStorage.getItem('favouriteRecipes'));
   });
 });

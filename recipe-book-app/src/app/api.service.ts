@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { RecipeService } from './recipe.service';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
   header = new HttpHeaders({'Content-Type': 'application/json'});
-  API_KEY = 'd4b6211a232e4550b95379a24351ec29';
+  API_KEY = '88de97d87c084c90bb6db83951a8b806';
 
-  constructor(private http: HttpClient,
-              private recipeService: RecipeService)
+  constructor(private http: HttpClient)
   {}
 
   getRecipes() {
