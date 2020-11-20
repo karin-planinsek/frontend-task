@@ -9,7 +9,8 @@ h2 {
 }
 
 .card {
-  max-width: 25vw;
+  max-width: 45vw;
+  margin: 0 auto;
 }
 
 #desc {

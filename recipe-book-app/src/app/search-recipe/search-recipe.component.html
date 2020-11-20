@@ -16,7 +16,7 @@
         </ng-autocomplete>
 
         <ng-template #itemTemplate let-item>
-        <a [innerHTML]="item.title"></a>
+        <a [innerHTML]="item.title"><img src="/src/assets/icon/star.png" alt="" *ngIf="isInFavourites"></a>
         </ng-template>
 
         <ng-template #notFoundTemplate let-notFound>

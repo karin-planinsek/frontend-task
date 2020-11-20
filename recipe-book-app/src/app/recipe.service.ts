@@ -16,6 +16,7 @@ export class RecipeService {
   recipeId;
 
   recipe: Array<{id: number, title: string, image: string, instructions: string, summary: string, prepTime: number, servings: number}> = [];
+  recipes;
 
   getRecipes(recipes) {
     console.log(recipes);
