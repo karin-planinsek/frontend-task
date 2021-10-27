@@ -1,5 +1,5 @@
 # Angular Recipe Web App
-This repository contains the required frontend task, provided by Gene Planet
+This repository contains a simple recipe web app
 - Angular version: 9.1.12
 
 ## Installation
